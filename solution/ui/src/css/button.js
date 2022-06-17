@@ -1,4 +1,4 @@
-import { css } from "https://cdn.skypack.dev/lit-element";
+import { css } from "lit";
 
 export const button = css`
 button{

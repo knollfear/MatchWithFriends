@@ -1,63 +1,36 @@
 {
-  "name": "lit-tac-toe",
-  "devDependencies": {
-    "@open-wc/building-rollup": "^1.10.0",
-    "@open-wc/eslint-config": "^4.3.0",
-    "@open-wc/testing": "^2.5.33",
-    "@web/dev-server": "^0.1.20",
-    "@web/dev-server-storybook": "^0.3.7",
-    "@web/test-runner": "^0.12.20",
-    "deepmerge": "^4.2.2",
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^7.2.0",
-    "husky": "^4.3.8",
-    "lint-staged": "^10.5.4",
-    "prettier": "^2.2.1",
-    "rimraf": "^3.0.2",
-    "rollup": "^2.55.1"
-  },
-  "author": "lit-tac-toe",
-  "description": "Webcomponent lit-tac-toe following open-wc recommendations",
+  "name": "lit-nakama-vanilla-base",
+  "private": true,
   "version": "0.0.0",
+  "main": "dist/lit-nakama-vanilla-base.es.js",
+  "exports": {
+    ".": "./dist/lit-nakama-vanilla-base.es.js"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "lint": "eslint --ext .js,.html . --ignore-path .gitignore && prettier \"**/*.js\" --check --ignore-path .gitignore",
-    "format": "eslint --ext .js,.html . --fix --ignore-path .gitignore && prettier \"**/*.js\" --write --ignore-path .gitignore",
-    "test": "web-test-runner --coverage",
-    "test:watch": "web-test-runner --watch",
-    "storybook": "web-dev-server -c .storybook/server.mjs",
-    "storybook:build": "build-storybook",
-    "build": "rimraf dist && rollup -c rollup.config.js",
-    "start:build": "npm run build && web-dev-server --root-dir dist --app-index index.html --open --compatibility none",
-    "start": "web-dev-server"
+    "dev": "vite",
+    "build": "vite build",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
-  "license": "MIT",
   "dependencies": {
-    "@heroiclabs/nakama-js": "^2.2.0",
-    "lit-element": "^2.5.1",
-    "lit-html": "^1.4.1",
-    "pusher": "^5.0.0",
-    "uuid": "^8.3.2",
-    "uuidv4": "^6.2.11"
+    "@heroiclabs/nakama-js": "^2.3.0",
+    "faker": "^6.6.6",
+    "lit": "^2.0.2",
+    "lit-element": "^3.2.0",
+    "uuid": "^8.3.2"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "prettier": {
-    "singleQuote": true,
-    "arrowParens": "avoid"
-  },
-  "eslintConfig": {
-    "extends": [
-      "@open-wc/eslint-config",
-      "eslint-config-prettier"
-    ]
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "prettier --write"
-    ]
+  "devDependencies": {
+    "@babel/core": "^7.17.10",
+    "@faker-js/faker": "^6.3.1",
+    "@storybook/addon-actions": "^6.4.22",
+    "@storybook/addon-essentials": "^6.4.22",
+    "@storybook/addon-links": "^6.4.22",
+    "@storybook/builder-vite": "^0.1.32",
+    "@storybook/web-components": "^6.4.22",
+    "babel-loader": "^8.2.5",
+    "vite": "^2.9.5"
   }
 }

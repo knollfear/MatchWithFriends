@@ -1,4 +1,4 @@
-import { html } from "https://cdn.skypack.dev/lit-element";
+import { html } from "lit";
 
 const Rules =[
   {
@@ -7,6 +7,7 @@ const Rules =[
       return obj.txt === activeCard.txt
     },
     cardRender: (obj) =>{return imgCard(obj)},
+
   },
   {
     text:(obj, isNot, notNot) =>{return `${isNot ? 'Not' : notNot ? 'Not Not':''} ${obj.preferredName || obj.firstName}`},
@@ -53,7 +54,6 @@ const Rules =[
 
     },
     cardRender: (obj) =>{return imgCard(obj)},
-    activeCards: (activeCards, possibleCards) =>{ return activeCards.slice(0,4)}
   },
   {
     text:(obj, isNot) =>{return `${isNot ? 'Not first' : 'First'} (alphabetically by FIRST name)`},
@@ -64,7 +64,6 @@ const Rules =[
 
     },
     cardRender: (obj) =>{return imgCard(obj)},
-    activeCards: (activeCards, possibleCards) =>{ return activeCards.slice(0,4)}
   },
   {
     text:(obj, isNot) =>{return `${isNot ? 'Not last' : 'Last'} (alphabetically by FIRST name)`},
@@ -76,7 +75,6 @@ const Rules =[
 
     },
     cardRender: (obj) =>{return imgCard(obj)},
-    activeCards: (activeCards, possibleCards) =>{ return activeCards.slice(0,4)}
   },
   {
     text:(obj, isNot) =>{return `${isNot ? 'Not last' : 'Last'} (alphabetically by LAST name)`},
@@ -87,14 +85,13 @@ const Rules =[
 
     },
     cardRender: (obj) =>{return imgCard(obj)},
-    activeCards: (activeCards, possibleCards) =>{ return activeCards.slice(0,4)}
   },
 
 ];
 
 const imgPrompt = (obj, isNot, notNot) =>{
   return (html `
-    <div>
+    <div class="card">
       ${isNot ? 'Not' : notNot ? 'Not Not':''}
       <img src=${ obj.photoUrl } alt=${obj.displayName}/>
     </div>
@@ -118,9 +115,8 @@ const aTeamRule = {
     return obj.txt === activeCard.txt
   },
   cardRender: (obj) =>{return imgCard(obj)},
-  activeCards: (activeCards, possibleCards) => {return possibleCards.filter( (card) =>{
+  activeCards: (possibleCards) => {return possibleCards.filter( (card) =>{
     return card.lastName ==='Barrow';
-
   })}
 };
 
@@ -130,7 +126,7 @@ const johnRule = {
     return obj.firstName === activeCard.firstName
   },
   cardRender: (obj) =>{return imgCard(obj)},
-  activeCards: (activeCards, possibleCards) => {return possibleCards.filter( (card) =>{
+  activeCards: (possibleCards) => {return possibleCards.filter( (card) =>{
     return card.firstName ==='Jonathan' || card.firstName === 'John';
 
   })}

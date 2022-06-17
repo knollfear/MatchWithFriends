@@ -1,4 +1,4 @@
-# FearNotWithFriends
+# MatchWithFriends
 
 This is a real time web game where you compete to see who knows the herd the best.  
 The architecture is a lambda at AWS to serve the information regarding Fearless employees, a static website written in lit.dev hosted at AWS and provisioned
