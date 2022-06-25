@@ -37,7 +37,12 @@ export class Score  extends LitElement {
       .life{
         border-radius: 100%;
         margin: 8px;
-        max-width:32px;
+        max-width:24px;
+      }
+      .score-box{
+        display: flex;
+        align-items:center;
+        padding: 20px;
       }
       .home .life{
         border: ${homeColor} solid 2px;
@@ -57,26 +62,23 @@ export class Score  extends LitElement {
   /// LIFECYCLE INSERTION POINT DO NOT REMOVE
 
   render() {
-    if(this.gameState.activeCards) {
+    if(this.gameState.cardMap) {
       return (
 
         html`
           <fieldset>
             <legend>Score</legend>
-            <ul>
-              <li class="${this.isHome ? 'home' : 'away'}">${this.isHome ? this.homeName : this.awayName}:
-                ${this.isHome ? this.gameState.homeScore : this.gameState.awayScore}
-              </li>
-              <li class="${this.isHome ? 'home' : 'away'}">
-                ${new Array(this.isHome ? this.gameState.homeLives : this.gameState.awayLives).fill(0).map(x => life)}
-              </li>
-              <li class="${this.isHome ? 'away' : 'home'}">${this.isHome ? this.awayName : this.homeName}:
-                ${this.isHome ? this.gameState.awayScore : this.gameState.homeScore}
-              </li>
-              <li class="${this.isHome ? 'away' : 'home'}">
-                ${new Array(this.isHome ? this.gameState.awayLives : this.gameState.homeLives).fill(0).map(x => life)}
-              </li>
-            </ul>
+            <div>
+              <div class="${this.isHome ? 'home' : 'away'} score-box">
+                <span>${this.isHome ? this.homeName : this.awayName}:</span>
+                ${new Array(this.isHome ? this.gameState.homeScore : this.gameState.awayScore).fill(0).map(x => life)}
+              </div>
+              <div class="${this.isHome ? 'away' : 'home'} score-box">
+                <span>${this.isHome ? this.awayName : this.homeName}:</span>
+                ${new Array(this.isHome ? this.gameState.awayScore : this.gameState.homeScore).fill(0).map(x => life)}
+              </div>
+
+            </div>
           </fieldset>
         `
       );

@@ -1,5 +1,5 @@
 import {html} from "lit";
-import { faker } from '@faker-js/faker'
+import {getCard} from "../../helpers/utils";
 import {GameArea} from "./gameArea";
 
 window.customElements.define('fearnot-game-area', GameArea)
@@ -8,23 +8,7 @@ export default {
     title: 'FearNot/Components/GameArea',
 };
 
-const getCard = () => {
-    const firstName = faker.name.firstName()
-    const lastName = faker.name.lastName()
-    const imgNum = Math.floor(Math.random() * 12) + 1
-    return {
-        displayName: firstName + " " + lastName,
-        division: faker.commerce.department() + " department",
-        firstName: firstName,
-        img: "/src/img/People and Skintones_Profile" + imgNum + ".jpg",
-        jobTitle: faker.name.jobTitle(),
-        lastName: lastName,
-        location: "Fearless HQ",
-        photoUrl: "/src/img/People and Skintones_Profile" + imgNum + ".jpg",
-        preferredName: "",
-        txt: firstName + " " + lastName
-    }
-}
+
 
 const getCards = () => [0,1,2,3].map( () => getCard())
 

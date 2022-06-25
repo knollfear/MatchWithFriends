@@ -9,18 +9,20 @@ window.customElements.define('game-creation', GameCreation)
 window.customElements.define('join-component', Join)
 window.customElements.define('chat-component', Chat)
 
-// fearnot
-import {FearNotContainer} from "./src/fearnot/FearNotContainer"
-import {GameArea} from "./src/fearnot/components/gameArea"
-import {Header} from "./src/fearnot/components/header"
 
-window.customElements.define('fearnot-container', FearNotContainer)
-window.customElements.define('fearnot-game-area', GameArea)
-window.customElements.define('fearnot-header', Header)
+// matching
+import { Cards } from './src/matching/components/Cards';
+import { Card } from './src/matching/components/Card';
+import { MatchingContainer } from './src/matching/MatchingContainer';
 
+window.customElements.define('matching-card', Card)
+window.customElements.define('matching-cards', Cards)
+window.customElements.define('matching-container', MatchingContainer)
 
 
 // common
 import {Score} from "./src/common/components/score"
+import {Header} from "./src/fearnot/components/header"
 
 window.customElements.define('score-component', Score)
+window.customElements.define('fearnot-header', Header)

@@ -41,7 +41,7 @@ export class Header  extends LitElement {
         return (
             html`
         <div class="fearnot-header">
-          <span class="fearnot-fearnot">Fear Not</span>
+          <span class="fearnot-fearnot">Match</span>
           <br/>
           <span class="fearnot-withfriends">With Friends</span>
         </div>

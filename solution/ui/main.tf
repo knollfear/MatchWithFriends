@@ -7,8 +7,8 @@ module "static_site" {
   version = "~> 4.0"
 
 
-  domain_name = "fnwf.knollfear.com"
-  acm_certificate_arn = "arn:aws:acm:us-east-1:040343200390:certificate/a1f5bd4b-0110-497e-b244-fb3dfb56f059"
+  domain_name = "mwf.knollfear.com"
+  acm_certificate_arn = "arn:aws:acm:us-east-1:040343200390:certificate/35747686-dc63-47e3-876b-abb5c9202749"
 
   # Optional
   hosted_zone_id = "Z0323898HN01KM7UWL5Z"

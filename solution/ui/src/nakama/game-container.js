@@ -3,6 +3,7 @@ import {Client} from "@heroiclabs/nakama-js";
 import { v4 as uuid } from 'uuid'
 import {button} from "../css/button";
 import {clientConfig} from "./config";
+import {backgroundColor} from "../settings"
 
 //////
 // This component was generate with a template.  To use this component use the following HTML snippet:
@@ -64,7 +65,7 @@ export class GameContainer  extends LitElement {
       ${button}
 
       .fearnot-body{
-        background-color: #ccc4d5;
+        background-color: ${backgroundColor};
         color: #5c3977;
         height: 100vh;
         font-family: "Montserrat Alternates Bold", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
@@ -142,7 +143,7 @@ export class GameContainer  extends LitElement {
             <fearnot-header></fearnot-header>
             <div class="main-container">
               <div class="left-container container">
-                <fearnot-container
+                <matching-container
                   @game-event=${this._handleGameEvent}
                   .isHome=${this.isHome}
                   .homeName=${this.homeName}
@@ -150,7 +151,7 @@ export class GameContainer  extends LitElement {
                   .gameName=${this.gameName}
                   .gameState=${this.gameState}
                 >
-                </fearnot-container>
+                </matching-container>
               </div>
               <div class="right-container">
                 <div class="score-container half-container">

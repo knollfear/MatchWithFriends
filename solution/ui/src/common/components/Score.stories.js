@@ -47,7 +47,6 @@ PendingGame.args = {
         homeLives: 3,
         awayScore: 0,
         awayLives: 3,
-        activeCards: false,
     },
 };
 
@@ -59,7 +58,7 @@ ScoredGame.args = {
         homeLives: 1,
         awayScore: 7,
         awayLives: 2,
-        activeCards: true,
+        cardMap: [1,1,2,2],
     },
 };
 
